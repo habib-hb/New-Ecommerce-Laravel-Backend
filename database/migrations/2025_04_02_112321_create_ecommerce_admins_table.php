@@ -12,8 +12,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('register_users', function (Blueprint $table) {
-            $table->id('user_id');
+        Schema::create('ecommerce_admins', function (Blueprint $table) {
+            $table->id('admin_id');
+            $table->string('admin_type');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('register_users');
+        Schema::dropIfExists('ecommerce_admins');
     }
 };

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ecommerce\RegisteredUsersController;
 use App\Http\Controllers\email_unsubscribe_confirmed;
 use App\Mail\TestEmail;
 use App\Models\blog_posts;
@@ -27,3 +28,9 @@ Route::get('/ecommerce-test', function () {
 Route::get('/csrf-token' , function () {
     return csrf_token();
 });
+
+Route::post('user-register', [RegisteredUsersController::class, 'user_register']);
+
+Route::post('user-login', [RegisteredUsersController::class, 'user_login']);
+
+Route::get('read-cookie', [RegisteredUsersController::class, 'read_cookie']);

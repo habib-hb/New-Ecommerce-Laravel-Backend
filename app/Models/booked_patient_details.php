@@ -14,13 +14,11 @@ class booked_patient_details extends Model
     protected $primaryKey = 'booked_patient_id';
 
     protected $fillable = [
-       'name',
-       'age',
-       'gender',
-       'contact_number',
-       'written_problem',
-       'appointment_date',
-       'appointment_time',
-       'appointment_status'
+        'name',
+        'email',
+        'password',
+        'phone',
+        'authorization_key',
+        'serial_data',
     ];
 }
