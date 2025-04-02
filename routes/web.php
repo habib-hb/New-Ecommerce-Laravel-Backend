@@ -707,3 +707,14 @@ Route::get('/generate-sitemap', function () {
 Route::get('/payment/success', [PaymentController::class, 'success'])->name('payment.success');
 Route::get('/payment/cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');
 Route::post('/stripe/webhook', [StripeWebhookController::class, 'handleWebhook'])->name('cashier.webhook');
+
+
+
+
+
+
+
+
+
+
+require __DIR__ . '/ecommerce.php';
