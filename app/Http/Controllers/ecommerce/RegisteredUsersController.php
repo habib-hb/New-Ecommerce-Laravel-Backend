@@ -60,10 +60,42 @@ class RegisteredUsersController extends Controller
     }
 
 
-    public function read_cookie(Request $request){
+    public function read_user_cookie(Request $request){
         $cookie = $request->cookie('ecommerce_user_session');
         $decoded_cookie = json_decode($cookie);
         return response()->json(['status' => 'success', 'data' => $decoded_cookie , 'authorization_key' => $decoded_cookie->authorization_key]);
+    }
+
+
+
+    public function search_user_by_name(Request $request){
+        $searched_user_data_by_name = RegisterUser::where('name', 'like', '%'.$request->input('name').'%')->get();
+
+        return response()->json(['status' => 'successfully searched data by name', 'data' => $searched_user_data_by_name]);
+    }
+
+
+
+
+
+
+    public function search_user_by_email(Request $request){
+        $searched_user_data_by_email = RegisterUser::where('email', 'like', '%'.$request->input('email').'%')->get();
+
+        return response()->json(['status' => 'successfully searched data by email', 'data' => $searched_user_data_by_email]);
+    }
+
+
+
+
+
+
+
+
+    public function search_user_by_phone(Request $request){
+        $searched_user_data_by_phone = RegisterUser::where('phone', 'like', '%'.$request->input('phone').'%')->get();
+
+        return response()->json(['status' => 'successfully searched data by phone', 'data' => $searched_user_data_by_phone]);
     }
 
     /**

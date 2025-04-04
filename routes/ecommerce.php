@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\ecommerce\EcommerceAdminsController;
+use App\Http\Controllers\ecommerce\EcommerceProductCategoriesController;
+use App\Http\Controllers\ecommerce\EcommerceProductsController;
+use App\Http\Controllers\ecommerce\EcommerceProductSlotsController;
 use App\Http\Controllers\ecommerce\RegisteredUsersController;
 use App\Http\Controllers\email_unsubscribe_confirmed;
 use App\Mail\TestEmail;
@@ -17,6 +21,7 @@ use Spatie\Sitemap\Tags\Url;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StripeWebhookController;
 use App\Http\Middleware\AdminCheck;
+use App\Models\ecommerce\ecommerce_admins;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -33,4 +38,73 @@ Route::post('user-register', [RegisteredUsersController::class, 'user_register']
 
 Route::post('user-login', [RegisteredUsersController::class, 'user_login']);
 
-Route::get('read-cookie', [RegisteredUsersController::class, 'read_cookie']);
+Route::get('read-user-cookie', [RegisteredUsersController::class, 'read_user_cookie']);
+
+
+
+
+
+
+
+
+
+
+
+Route::post('admin-register', [EcommerceAdminsController::class, 'admin_register']);
+
+Route::post('admin-login', [EcommerceAdminsController::class, 'admin_login']);
+
+Route::get('read-admin-cookie', [EcommerceAdminsController::class, 'read_admin_cookie']);
+
+
+
+
+
+
+
+
+
+
+
+
+Route::post('product-register', [EcommerceProductsController::class, 'product_register']);
+
+
+
+
+
+
+
+
+
+
+
+
+Route::post('product-category-register', [EcommerceProductCategoriesController::class, 'product_category_register']);
+
+
+
+
+
+
+
+
+
+
+Route::post('product-slot-register', [EcommerceProductSlotsController::class, 'product_slot_register']);
+
+
+
+
+
+
+
+
+
+
+
+Route::post('search_user_by_name', [RegisteredUsersController::class, 'search_user_by_name']);
+
+Route::post('search_user_by_email', [RegisteredUsersController::class, 'search_user_by_email']);
+
+Route::post('search_user_by_phone', [RegisteredUsersController::class, 'search_user_by_phone']);
