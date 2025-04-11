@@ -3,6 +3,7 @@
 use App\Http\Controllers\ecommerce\EcommerceAdminsController;
 use App\Http\Controllers\ecommerce\EcommerceProductCategoriesController;
 use App\Http\Controllers\ecommerce\EcommerceProductsController;
+use App\Http\Controllers\ecommerce\EcommerceOrdersController;
 use App\Http\Controllers\ecommerce\EcommerceProductSlotsController;
 use App\Http\Controllers\ecommerce\RegisteredUsersController;
 use App\Http\Controllers\email_unsubscribe_confirmed;
@@ -106,3 +107,18 @@ Route::get('show_all_product_categories' , [EcommerceProductCategoriesController
 Route::post('product-slot-register', [EcommerceProductSlotsController::class, 'product_slot_register']);
 
 Route::get('show_all_product_slots' , [EcommerceProductSlotsController::class , 'show_all_product_slots']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::post('product-order-register', [EcommerceOrdersController::class, 'product_order_register']);
+

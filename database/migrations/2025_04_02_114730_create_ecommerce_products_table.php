@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('category_id');
             $table->string('slot_id');
             $table->string('product_name');
-            $table->string('product_undiscounted_price');
-            $table->string('product_discounted_price');
+            $table->string('product_default_undiscounted_price');
+            $table->string('product_default_discounted_price');
             $table->string('products_in_inventory');
             $table->string('product_varient');
             $table->timestamp('serial_data')->default(DB::raw('CURRENT_TIMESTAMP'));
