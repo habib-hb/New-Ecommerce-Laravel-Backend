@@ -98,6 +98,33 @@ class RegisteredUsersController extends Controller
         return response()->json(['status' => 'successfully searched data by phone', 'data' => $searched_user_data_by_phone]);
     }
 
+
+
+
+
+
+
+
+
+
+    public function show_all_users(){
+        $all_users = RegisterUser::all();
+
+        return response()->json(['status' => 'successfully fetched all users', 'data' => $all_users]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Display the specified resource.
      */

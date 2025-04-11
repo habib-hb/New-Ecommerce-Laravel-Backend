@@ -29,6 +29,37 @@ class EcommerceProductSlotsController extends Controller
         return response()->json(['status' => 'successfully added product slot', 'data' => $new_product_slot_data]);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+    public function show_all_product_slots()
+    {
+        $all_product_slots = Product_slots::all();
+
+        return response()->json(['status'=> 'Showing all product slots', 'data' => $all_product_slots]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Store a newly created resource in storage.
      */

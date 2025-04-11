@@ -44,6 +44,37 @@ class EcommerceProductsController extends Controller
         return response()->json(['status' => 'successfully added product', 'data' => $new_product_data]);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+    public function show_all_products(){
+        $all_products = EcommerceProducts::join('product_categories', 'product_categories.category_id', '=', 'ecommerce_products.category_id')
+        ->join('product_slots', 'product_slots.slot_id', '=', 'ecommerce_products.slot_id')
+        ->select('ecommerce_products.*', 'product_categories.category_id', 'product_categories.category_name' , 'product_slots.slot_id', 'product_slots.slot_name')
+        ->get();
+
+        return response()->json(['status'=> 'Showing all products', 'data' => $all_products]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Display the specified resource.
      */

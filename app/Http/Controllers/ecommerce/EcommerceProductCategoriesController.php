@@ -29,6 +29,35 @@ class EcommerceProductCategoriesController extends Controller
         return response()->json(['status' => 'successfully added product category', 'data' => $new_product_category_data]);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+    public function show_all_product_categories(){
+        $all_product_categories = Product_categories::all();
+
+        return response()->json(['status'=> 'Showing all product categories', 'data' => $all_product_categories]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Store a newly created resource in storage.
      */

@@ -40,6 +40,14 @@ Route::post('user-login', [RegisteredUsersController::class, 'user_login']);
 
 Route::get('read-user-cookie', [RegisteredUsersController::class, 'read_user_cookie']);
 
+Route::post('search_user_by_name', [RegisteredUsersController::class, 'search_user_by_name']);
+
+Route::post('search_user_by_email', [RegisteredUsersController::class, 'search_user_by_email']);
+
+Route::post('search_user_by_phone', [RegisteredUsersController::class, 'search_user_by_phone']);
+
+Route::get('show_all_users' , [RegisteredUsersController::class , 'show_all_users']);
+
 
 
 
@@ -69,6 +77,8 @@ Route::get('read-admin-cookie', [EcommerceAdminsController::class, 'read_admin_c
 
 Route::post('product-register', [EcommerceProductsController::class, 'product_register']);
 
+Route::get('show_all_products' , [EcommerceProductsController::class , 'show_all_products']);
+
 
 
 
@@ -82,6 +92,8 @@ Route::post('product-register', [EcommerceProductsController::class, 'product_re
 
 Route::post('product-category-register', [EcommerceProductCategoriesController::class, 'product_category_register']);
 
+Route::get('show_all_product_categories' , [EcommerceProductCategoriesController::class , 'show_all_product_categories']);
+
 
 
 
@@ -93,18 +105,4 @@ Route::post('product-category-register', [EcommerceProductCategoriesController::
 
 Route::post('product-slot-register', [EcommerceProductSlotsController::class, 'product_slot_register']);
 
-
-
-
-
-
-
-
-
-
-
-Route::post('search_user_by_name', [RegisteredUsersController::class, 'search_user_by_name']);
-
-Route::post('search_user_by_email', [RegisteredUsersController::class, 'search_user_by_email']);
-
-Route::post('search_user_by_phone', [RegisteredUsersController::class, 'search_user_by_phone']);
+Route::get('show_all_product_slots' , [EcommerceProductSlotsController::class , 'show_all_product_slots']);
