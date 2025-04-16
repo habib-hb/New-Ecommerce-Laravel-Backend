@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\ecommerce;
 
 use App\Http\Controllers\Controller;
-use App\Models\ecommerce\RegisterUser;
+use App\Models\ecommerce\Ecommerce_users;
 use Illuminate\Http\Request;
 
-class RegisteredUsersController extends Controller
+class EcommerceUsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,7 +38,7 @@ class RegisteredUsersController extends Controller
             'authorization_key' => bin2hex(random_bytes(36)),
             'serial_data' => now(),
         ];
-        RegisterUser::create($new_user_data);
+        Ecommerce_users::create($new_user_data);
 
         $cookie = cookie('ecommerce_user_session', json_encode($new_user_data), 60);
 
@@ -49,7 +49,7 @@ class RegisteredUsersController extends Controller
 
     public function user_login(Request $request)
     {
-       $logged_user_data = RegisterUser::where('email', $request->input('email'))->where('password', $request->input('password'))->first();
+       $logged_user_data = Ecommerce_users::where('email', $request->input('email'))->where('password', $request->input('password'))->first();
 
        if ($logged_user_data) {
             $cookie = cookie('ecommerce_user_session', json_encode($logged_user_data), 60);
@@ -69,7 +69,7 @@ class RegisteredUsersController extends Controller
 
 
     public function search_user_by_name(Request $request){
-        $searched_user_data_by_name = RegisterUser::where('name', 'like', '%'.$request->input('name').'%')->get();
+        $searched_user_data_by_name = Ecommerce_users::where('name', 'like', '%'.$request->input('name').'%')->get();
 
         return response()->json(['status' => 'successfully searched data by name', 'data' => $searched_user_data_by_name]);
     }
@@ -80,7 +80,7 @@ class RegisteredUsersController extends Controller
 
 
     public function search_user_by_email(Request $request){
-        $searched_user_data_by_email = RegisterUser::where('email', 'like', '%'.$request->input('email').'%')->get();
+        $searched_user_data_by_email = Ecommerce_users::where('email', 'like', '%'.$request->input('email').'%')->get();
 
         return response()->json(['status' => 'successfully searched data by email', 'data' => $searched_user_data_by_email]);
     }
@@ -93,7 +93,7 @@ class RegisteredUsersController extends Controller
 
 
     public function search_user_by_phone(Request $request){
-        $searched_user_data_by_phone = RegisterUser::where('phone', 'like', '%'.$request->input('phone').'%')->get();
+        $searched_user_data_by_phone = Ecommerce_users::where('phone', 'like', '%'.$request->input('phone').'%')->get();
 
         return response()->json(['status' => 'successfully searched data by phone', 'data' => $searched_user_data_by_phone]);
     }
@@ -108,7 +108,7 @@ class RegisteredUsersController extends Controller
 
 
     public function show_all_users(){
-        $all_users = RegisterUser::all();
+        $all_users = Ecommerce_users::all();
 
         return response()->json(['status' => 'successfully fetched all users', 'data' => $all_users]);
     }

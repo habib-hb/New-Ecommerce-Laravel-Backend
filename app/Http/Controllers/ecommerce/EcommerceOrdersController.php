@@ -29,4 +29,10 @@ class EcommerceOrdersController extends Controller
         return response()->json(['status' => 'successfully added product order', 'data' => $new_product_order_data]);
     }
 
+    public function show_all_product_orders()
+    {
+        $all_product_orders = Product_orders::all();
+        return response()->json(['status' => 'successfully fetched all product orders', 'data' => $all_product_orders]);
+    }
+
 }

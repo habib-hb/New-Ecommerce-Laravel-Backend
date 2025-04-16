@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
-class ecommerce_admins extends Model
+class Ecommerce_admins extends Model
 {
     use HasFactory;
 

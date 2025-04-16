@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\ecommerce;
 
 use App\Http\Controllers\Controller;
-use App\Models\ecommerce\ecommerce_admins;
+use App\Models\ecommerce\Ecommerce_admins;
 use Illuminate\Http\Request;
 
 class EcommerceAdminsController extends Controller
@@ -38,7 +38,7 @@ class EcommerceAdminsController extends Controller
             'authorization_key' => bin2hex(random_bytes(36)),
             'serial_data' => now(),
         ];
-        ecommerce_admins::create($new_admin_data);
+        Ecommerce_admins::create($new_admin_data);
 
         $cookie = cookie('ecommerce_admin_session', json_encode($new_admin_data), 60);
 
@@ -52,7 +52,7 @@ class EcommerceAdminsController extends Controller
 
      public function admin_login(Request $request)
      {
-        $logged_admin_data = ecommerce_admins::where('email', $request->input('email'))->where('password', $request->input('password'))->first();
+        $logged_admin_data = Ecommerce_admins::where('email', $request->input('email'))->where('password', $request->input('password'))->first();
 
         if ($logged_admin_data) {
              $cookie = cookie('ecommerce_admin_session', json_encode($logged_admin_data), 60);

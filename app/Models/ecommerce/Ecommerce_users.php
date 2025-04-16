@@ -5,11 +5,11 @@ namespace App\Models\ecommerce;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class RegisterUser extends Model
+class Ecommerce_users extends Model
 {
     use HasFactory;
 
-    protected $table = 'register_users';
+    protected $table = 'ecommerce_users';
 
     protected $primaryKey = 'user_id';
 
